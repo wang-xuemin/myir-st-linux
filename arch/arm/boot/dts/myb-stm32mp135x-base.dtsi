@@ -383,7 +383,7 @@
 	st,neg-edge;
 	bus-width = <4>;
 	vmmc-supply = <&vddmmc>;
-	status = "okay";
+	status = "disabled";
 };
 
 /* eMMC */
@@ -402,7 +402,7 @@
 	vqmmc-supply = <&vdd1v8>;
 	#address-cells = <1>;
 	#size-cells = <0>;
-	status = "okay";
+	status = "disabled";
 };
 
 &sram {
