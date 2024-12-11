@@ -893,6 +893,7 @@
 			otg-rev = <0x200>;
 			usb33d-supply = <&scmi_usb33>;
 			power-domains = <&pd_core>;
+			no-1-8-v;
 			wakeup-source;
 			status = "disabled";
 		};
