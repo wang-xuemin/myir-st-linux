@@ -465,7 +465,7 @@
 	phys = <&usbphyc_port1 0>;
 	phy-names = "usb2-phy";
 	usb-role-switch;
-	dr_mode = "otg";
+	dr_mode = "host";
 	role-switch-default-mode = "peripheral";
 	// hnp-disable;
 	// srp-disable;
