@@ -455,7 +455,7 @@
 	};
 };
 
-&timers2 {
+&timers3 {
 	/* spare dmas for other usage(un-delete to enable pwm capture) */
 	/delete-property/dmas;
 	/delete-property/dma-names;
@@ -471,7 +471,7 @@
 	};
 };
 
-&timers3 {
+&timers2 {
 	/delete-property/dmas;
 	/delete-property/dma-names;
 	status = "disabled";
