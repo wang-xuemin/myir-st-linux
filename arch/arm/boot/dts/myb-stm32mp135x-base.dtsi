@@ -77,7 +77,7 @@
 		};
 	};
 
-	leds {
+	/*leds {
 		compatible = "gpio-leds";
 		led-blue {
 			function = LED_FUNCTION_HEARTBEAT;
@@ -86,7 +86,7 @@
 			linux,default-trigger = "heartbeat";
 			default-state = "off";
 		};
-	};
+	};*/
 
 	/*LCD Panel*/
 	panel_ltdc_rgb: panel_ltdc_rgb{
@@ -106,7 +106,7 @@
 
 	display_bl: display_bl {
 		compatible ="pwm-backlight";
-		pwms = <&pwm2 3 500000 0>;
+		pwms = <&pwm2 0 500000 0>;
 		#pwm-cells = <3>;
 		brightness-levels = <  0   1   2   3   4   5   6   7   8   9
 							   10  11  12  13  14  15  16  17  18  19
@@ -135,7 +135,7 @@
 							   240 241 242 243 244 245 246 247 248 249
 							   250 251 252 253 254 255>;
 		default-brightness-level = <100>;
-		enable-gpios = <&gpioi 0 GPIO_ACTIVE_HIGH>;
+		enable-gpios = <&gpioh 12 GPIO_ACTIVE_HIGH>;
 		power-supply = <&v3v3_panle>;
 		clocks = <&pwm_clk>;
 		clock-names = "pwm";
@@ -466,9 +466,6 @@
 		pinctrl-0 =<&pwm_default_pins_a>;
 		pinctrl-1 =<&pwm_sleep_pins_a>;
 		pinctrl-names = "default", "sleep";
-		status = "okay";
-	};
-	timer@1 {
 		status = "okay";
 	};
 };
