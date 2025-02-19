@@ -136,7 +136,6 @@
 							   250 251 252 253 254 255>;
 		default-brightness-level = <100>;
 		enable-gpios = <&gpioh 12 GPIO_ACTIVE_HIGH>;
-		power-supply = <&v3v3_panle>;
 		clocks = <&pwm_clk>;
 		clock-names = "pwm";
 		status ="okay";
@@ -458,7 +457,6 @@
 };
 
 &timers1 {
-	/* spare dmas for other usage(un-delete to enable pwm capture) */
 	/delete-property/dmas;
 	/delete-property/dma-names;
 	status = "okay";
@@ -466,6 +464,9 @@
 		pinctrl-0 =<&pwm_default_pins_a>;
 		pinctrl-1 =<&pwm_sleep_pins_a>;
 		pinctrl-names = "default", "sleep";
+		status = "okay";
+	};
+	timer@0 {
 		status = "okay";
 	};
 };
