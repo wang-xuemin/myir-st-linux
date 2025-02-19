@@ -457,7 +457,7 @@
 	};
 };
 
-&timers3 {
+&timers1 {
 	/* spare dmas for other usage(un-delete to enable pwm capture) */
 	/delete-property/dmas;
 	/delete-property/dma-names;
