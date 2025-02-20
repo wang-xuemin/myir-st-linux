@@ -239,14 +239,14 @@
 
 	pwm_default_pins_a: pwm-default-0 {
 		pins {
-			pinmux = <STM32_PINMUX('A', 11, AF1)>; /* TIM1_CH4 */
+			pinmux = <STM32_PINMUX('H', 12, AF2)>; /* TIM5_CH3 */
 			bias-disable;
 		};
 	};
 
 	pwm_sleep_pins_a: pwm-sleep-0 {
 		pins {
-			pinmux = <STM32_PINMUX('A', 11, ANALOG)>; /* TIM1_CH4 */
+			pinmux = <STM32_PINMUX('H', 12, ANALOG)>; /* TIM5_CH3 */
 		};
 	};
 
