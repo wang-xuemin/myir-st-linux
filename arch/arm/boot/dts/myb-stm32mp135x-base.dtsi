@@ -94,6 +94,7 @@
 		power-supply = <&v3v3_panle>;
 		enable-gpios = <&gpioa 11 GPIO_ACTIVE_HIGH>;
 		// reset-gpios = <&gpioi 0 GPIO_ACTIVE_HIGH>;
+		reset-gpios = <&gpioh 12 GPIO_ACTIVE_HIGH>;
 		//interrupts = <3 IRQ_TYPE_EDG
 		//backlight = <&panel_backlight>;
 
