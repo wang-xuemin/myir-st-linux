@@ -18,6 +18,7 @@
 		serial0 = &uart4;
 		serial1 = &uart7;
 		serial2 = &uart5;
+		serial3 = &usart2;
 	};
 
 	chosen {
