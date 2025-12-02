@@ -458,21 +458,15 @@
 &timers1 {
 	/delete-property/dmas;
 	/delete-property/dma-names;
-	compatible = "st,stm32-timers";
-	#address-cells = <1>;
-	#size-cells = <0>;
-	reg = <0x40000000 0x400>;  /* TIM2 基地址，参考 RM */
-	clocks = <&pwm_clk TIM2_K>;
-	#pwm-cells = <3>;
-	pinctrl-0 = <&pwm_default_pins_a>;
-	pinctrl-1 = <&pwm_sleep_pins_a>;
-	pinctrl-names = "default", "sleep";
 	status = "okay";
-
-	pwm2: pwm@0 {
+	pwm2: pwm {
+		pinctrl-0 =<&pwm_default_pins_a>;
+		pinctrl-1 =<&pwm_sleep_pins_a>;
+		pinctrl-names = "default", "sleep";
+		clocks = <&rcc TIM2_K>;
+		#pwm-cells = <3>;
 		status = "okay";
 	};
-
 	timer@0 {
 		status = "okay";
 	};
