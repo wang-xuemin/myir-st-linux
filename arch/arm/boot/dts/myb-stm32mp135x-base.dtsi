@@ -105,27 +105,6 @@
 		};
 	};
 
-	timers1: timer@40000000 {
-		compatible = "st,stm32-timers";
-		#address-cells = <1>;
-		#size-cells = <0>;
-		reg = <0x40000000 0x400>;  /* TIM2 基地址，参考 RM */
-		clocks = <&rcc TIM2_K>;
-		#pwm-cells = <3>;
-		pinctrl-0 = <&pwm_default_pins_a>;
-		pinctrl-1 = <&pwm_sleep_pins_a>;
-		pinctrl-names = "default", "sleep";
-		status = "okay";
-
-		pwm2: pwm@0 {
-			status = "okay";
-		};
-
-		timer@0 {
-			status = "okay";
-		};
-	};
-
 	// pwm
 	backlight: backlight {
 		compatible ="pwm-backlight";
@@ -477,6 +456,29 @@
 	dma_pool: dma-sram@0 {
 		reg = <0x0 0x4000>;
 		pool;
+	};
+};
+
+&timers1 {
+	/delete-property/dmas;
+	/delete-property/dma-names;
+	compatible = "st,stm32-timers";
+	#address-cells = <1>;
+	#size-cells = <0>;
+	reg = <0x40000000 0x400>;  /* TIM2 基地址，参考 RM */
+	clocks = <&rcc TIM2_K>;
+	#pwm-cells = <3>;
+	pinctrl-0 = <&pwm_default_pins_a>;
+	pinctrl-1 = <&pwm_sleep_pins_a>;
+	pinctrl-names = "default", "sleep";
+	status = "okay";
+
+	pwm2: pwm@0 {
+		status = "okay";
+	};
+
+	timer@0 {
+		status = "okay";
 	};
 };
 
