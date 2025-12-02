@@ -105,6 +105,27 @@
 		};
 	};
 
+	timers1: timer@40000000 {
+		compatible = "st,stm32-timers";
+		#address-cells = <1>;
+		#size-cells = <0>;
+		reg = <0x40000000 0x400>;  /* TIM2 基地址，参考 RM */
+		clocks = <&rcc TIM2_K>;
+		#pwm-cells = <3>;
+		pinctrl-0 = <&pwm_default_pins_a>;
+		pinctrl-1 = <&pwm_sleep_pins_a>;
+		pinctrl-names = "default", "sleep";
+		status = "okay";
+
+		pwm2: pwm@0 {
+			status = "okay";
+		};
+
+		timer@0 {
+			status = "okay";
+		};
+	};
+
 	// pwm
 	backlight: backlight {
 		compatible ="pwm-backlight";
@@ -136,15 +157,15 @@
 							   230 231 232 233 234 235 236 237 238 239
 							   240 241 242 243 244 245 246 247 248 249
 							   250 251 252 253 254 255>;
-		default-brightness-level = <100>;
-		enable-gpios = <&gpioc 8 GPIO_ACTIVE_HIGH>;
-		reset-gpios = <&gpioc 9 GPIO_ACTIVE_HIGH>;
+		default-brightness-level = <10>;
+		enable-gpios = <&gpioc 11 GPIO_ACTIVE_HIGH>;
+		reset-gpios = <&gpioc 0 GPIO_ACTIVE_HIGH>;
 		clocks = <&pwm_clk>;
 		clock-names = "pwm";
 		status ="okay";
 	};
 
-    v3v3_hdmi: regulator-v3v3-hdmi {
+	v3v3_hdmi: regulator-v3v3-hdmi {
         compatible = "regulator-fixed";
         regulator-name = "v3v3_hdmi";
         regulator-min-microvolt = <3300000>;
@@ -456,23 +477,6 @@
 	dma_pool: dma-sram@0 {
 		reg = <0x0 0x4000>;
 		pool;
-	};
-};
-
-&timers1 {
-	/delete-property/dmas;
-	/delete-property/dma-names;
-	status = "okay";
-
-	pwm2: pwm@44000000 {
-		compatible = "st,stm32-pwm";
-		reg = <0x44000000 0x400>;
-		pinctrl-0 = <&pwm_default_pins_a>;
-		pinctrl-1 = <&pwm_sleep_pins_a>;
-		pinctrl-names = "default", "sleep";
-		clocks = <&rcc TIM2_K>;
-		#pwm-cells = <3>;
-		status = "okay";
 	};
 };
 
