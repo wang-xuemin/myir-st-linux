@@ -1,5 +1,7 @@
 #!/bin/bash -e
 
+make ARCH=arm mrproper
+
 ### 编译内核 设置环境变量
 source /opt/st/myd-yf13x-emmc/4.0.4-snapshot/environment-setup-cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi
 
