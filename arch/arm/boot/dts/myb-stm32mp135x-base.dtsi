@@ -108,7 +108,7 @@
 	// pwm
 	backlight: backlight {
 		compatible ="pwm-backlight";
-		pwms = <&pwm2 3 0>;
+		pwms = <&pwm2 3 500000 0>;
 		pwm-names = "backlight";
 		brightness-levels = <  0   1   2   3   4   5   6   7   8   9
 							   10  11  12  13  14  15  16  17  18  19
@@ -458,30 +458,15 @@
 &timers1 {
 	/delete-property/dmas;
 	/delete-property/dma-names;
-
-	// **A. 必填属性**
-	compatible = "st,stm32-timers"; // <== 添加: 驱动兼容性
-	reg = <0x40000000 0x400>;      // <== 添加: TIM2 基地址
-	clocks = <&rcc TIM2_K>;        // <== 移动: 时钟定义
-
-	// **B. PWM 接口定义**
-	#address-cells = <1>;
-	#size-cells = <0>;
-	#pwm-cells = <2>;              // <== 修正: 推荐使用 2 (通道, 极性)
-
-	// **C. Pinctrl 定义**
-	pinctrl-0 = <&pwm_default_pins_a>; // <== 移动: 引脚配置
-	pinctrl-1 = <&pwm_sleep_pins_a>;   // <== 移动: 引脚配置
-	pinctrl-names = "default", "sleep";
-
 	status = "okay";
-
-	// **D. PWM 控制器实例 (子节点)**
-	pwm2: pwm@0 {                  // <== 修正: 标准标签格式
-	status = "okay";
+	pwm2: pwm {
+		compatible = "st,stm32-pwm";
+		pinctrl-0 =<&pwm_default_pins_a>;
+		pinctrl-1 =<&pwm_sleep_pins_a>;
+		pinctrl-names = "default", "sleep";
+		#pwm-cells = <3>;
+		status = "okay";
 	};
-
-	// **E. 通用定时器实例 (子节点)**
 	timer@0 {
 		status = "okay";
 	};
