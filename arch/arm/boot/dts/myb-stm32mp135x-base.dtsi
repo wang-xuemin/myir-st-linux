@@ -93,7 +93,7 @@
 	panel_ltdc_rgb: panel_ltdc_rgb{
 		compatible = "myir,070tft-7";
 		power-supply = <&v3v3_panle>;
-		enable-gpios = <&gpioa 10 GPIO_ACTIVE_HIGH>; // gpioa 11
+		enable-gpios = <&gpioa 11 GPIO_ACTIVE_HIGH>; // gpioa 11
 		reset-gpios = <&gpioi 0 GPIO_ACTIVE_HIGH>;
 		//interrupts = <3 IRQ_TYPE_EDG
 		//backlight = <&panel_backlight>;
@@ -108,7 +108,7 @@
 	// pwm
 	backlight: backlight {
 		compatible ="pwm-backlight";
-		pwms = <&pwm2 0 0>;
+		pwms = <&pwm2 3 0>;
 		pwm-names = "backlight";
 		brightness-levels = <  0   1   2   3   4   5   6   7   8   9
 							   10  11  12  13  14  15  16  17  18  19
