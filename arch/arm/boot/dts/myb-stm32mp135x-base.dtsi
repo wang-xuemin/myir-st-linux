@@ -118,7 +118,7 @@
 		// - 4: 使用 PWM 控制器的通道 4
 		// - 500000: PWM 周期为 500,000 纳秒 (500us)，频率为 2 kHz
 		// - 0: 极性/标志 (通常 0 表示正常极性)
-		pwms = <&pwm1 3 500000 0>;
+		pwms = <&pwm1 4 500000 0>;
 
 		// PWM 信号的名称
 		pwm-names = "backlight";
@@ -484,7 +484,7 @@
 	// 启用 timers1 块
 	status = "okay";
 
-	// 定义 PWM 控制器节点 (Label: pwm2)
+	// 定义 PWM 控制器节点 (Label: pwm1)
 	pwm1: timer@0 {
 		compatible = "st,stm32-timers-pwm";
 		reg = <0x0 0x400>;
