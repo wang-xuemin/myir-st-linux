@@ -9,7 +9,8 @@
 #include "myb-stm32mp135x-base.dtsi"
 
 / {
-	model = "STMicroelectronics STM32MP135F-DK Discovery Board";
+	// model = "STMicroelectronics STM32MP135F-DK Discovery Board";
+	model = "MYIR STM32MP135X 512M Board";
 	compatible = "st,stm32mp135f-dk", "st,stm32mp135";
 
 	aliases {
