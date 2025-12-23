@@ -308,16 +308,18 @@
 	phy-mode = "rgmii-id";
 	max-speed = <1000>;
 	phy-handle = <&phy0_eth1>;
-	// st,ext-phyclk;
-	// st,eth-clk-sel;
+
+	st,ext-phyclk;
+	st,eth-clk-sel;
+
 	st,phy-reset-gpios = <&gpiob 10 GPIO_ACTIVE_HIGH>;
 
-	mdio1 {
+	mdio0 {
 		#address-cells = <1>;
 		#size-cells = <0>;
 		compatible = "snps,dwmac-mdio";
 		phy0_eth1: ethernet-phy@0 {
-				compatible = "ethernet-phy-ieee802.3-c22";
+				compatible = "yt8531s", "ethernet-phy-ieee802.3-c22";
 				reg = <0>;
 		};
 	};
@@ -332,10 +334,12 @@
 	phy-mode = "rgmii-id";
 	max-speed = <1000>;
 	phy-handle = <&phy0_eth2>;
-	// st,ext-phyclk;
-	// st,eth-clk-sel;
-	phy-supply = <&v3v3_ao>;
+
+	st,ext-phyclk;
+	st,eth-clk-sel;
+
 	st,phy-reset-gpios =  <&gpioh 5 GPIO_ACTIVE_HIGH>;
+
 	// reset-deassert-us = <1000>;
 	// reset-assert-us = <1000>;
 	mdio1 {
@@ -343,7 +347,7 @@
 		#size-cells = <0>;
 		compatible = "snps,dwmac-mdio";
 		phy0_eth2: ethernet-phy@2 {
-				compatible = "ethernet-phy-ieee802.3-c22";
+				compatible = "yt8531s", "ethernet-phy-ieee802.3-c22";
 				reg = <2>;
 		};
 	};
