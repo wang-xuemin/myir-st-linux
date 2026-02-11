@@ -217,6 +217,7 @@
 		simple-audio-card,bitclock-master = <&codec_dai>;
 		simple-audio-card,frame-master = <&codec_dai>;
 		simple-audio-card,mclk-fs = <256>;
+		status = "disabled";
 
 	        simple-audio-card,widgets =
                         "Microphone", "Microphone Jack",
@@ -248,9 +249,9 @@
 	vdda-supply = <&vddadc>;
 	vref-supply = <&vddadcvref>;
 	vdd-supply = <&vddadc>;
-	status = "okay";
+	status = "disabled";
 	adc1: adc@0 {
-			status = "okay";
+			status = "disabled";
 			channel@2 {
 					reg = <2>;
 					st,min-sample-time-ns = <5000>;
@@ -271,7 +272,7 @@
 };
 
 &dcmipp {
-	status = "okay";
+	status = "disabled";	//  okay
 	pinctrl-names = "default", "sleep";
 	pinctrl-0 = <&dcmiapp_pins_mx>;
 	pinctrl-1 = <&dcmiapp_sleep_pins_mx>;
@@ -576,7 +577,7 @@
 	i2c-scl-rising-time-ns = <300>;
 	i2c-scl-falling-time-ns = <300>;
 	clock-frequency = <100000>;
-	status = "okay";
+	status = "disabled";
 	/* spare dmas for other usage */
 	/delete-property/dmas;
 	/delete-property/dma-names;
@@ -618,7 +619,7 @@
 		powerdown-gpios = <&gpioc 13 (GPIO_ACTIVE_HIGH | GPIO_PUSH_PULL)>;
 		reset-gpios = <&gpiog 8 (GPIO_ACTIVE_LOW | GPIO_PUSH_PULL)>;
 		// rotation = <180>;
-		status = "okay";
+		status = "disabled";
 			port {
 			ov2659_0: endpoint {
 				remote-endpoint = <&dcmipp_0>;
@@ -634,7 +635,7 @@
 	};
 
 	sgtl5000: audio-codec@a {
-		status = "okay";
+		status = "disabled";
 		#sound-dai-cells = <0>;
 		compatible = "fsl,sgtl5000";
 		reg = <0xa>;
@@ -704,7 +705,7 @@
 	pinctrl-0 = <&i2s1_pins_a>;
 	pinctrl-1 = <&i2s1_pins_sleep_a>;
 	i2s-ioswp;
-	status = "okay";
+	status = "disabled";
 
     i2s1_port: port {
         i2s1_endpoint: endpoint {
