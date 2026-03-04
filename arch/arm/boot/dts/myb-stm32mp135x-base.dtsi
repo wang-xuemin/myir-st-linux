@@ -681,9 +681,12 @@
 	pinctrl-0 = <&uart7_pins_a>;
 	pinctrl-1 = <&uart7_sleep_pins_a>;
 	pinctrl-2 = <&uart7_idle_pins_a>;
-	// /delete-property/dmas;
-	// /delete-property/dma-names;
 	status = "okay";
+
+	/* 关闭 DMA，避免方向切换异常 */
+	/delete-property/dmas;
+	/delete-property/dma-names;
+
 };
 
 /*RS232*/
@@ -692,9 +695,12 @@
 	pinctrl-0 = <&uart5_pins_a>;
 	pinctrl-1 = <&uart5_sleep_pins_a>;
 	pinctrl-2 = <&uart5_idle_pins_a>;
-	// /delete-property/dmas;
-	// /delete-property/dma-names;
 	status = "okay";
+
+	/* 关闭 DMA，避免方向切换异常 */
+	/delete-property/dmas;
+	/delete-property/dma-names;
+
 };
 
 &i2s1 {
